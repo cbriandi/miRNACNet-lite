@@ -9,7 +9,6 @@ from itsdangerous import TimedSerializer as TimedSerializer
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
-
 class RegisterForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired()], render_kw={"placeholder": "Email"})
 
@@ -106,4 +105,4 @@ def servererror(e):
     return render_template("500.html"), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
