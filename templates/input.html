@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<a href="/dashboard" class="nav-item nav-link" ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+<a href="/input" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Input</a>
+<a href="/models" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Models</a>
+<a href="/miRNA" class="nav-item nav-link"><i class="fa fa-table me-2"></i>miRNA Data</a>
+<a href="/tutorial" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tutorial</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+        <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+        <h2 class="text-primary">Input Data</h2><br>
+        <h5 class="text-primary">Upload a CSV file of your microRNA samples.</h5>
+        </br>
+        <p class="lead"></p>
+        <form action="input" method="POST" enctype="multipart/form-data">
+          <h5 class="text-primary">Please give a name to this prediction, and provide the sample type.</h5>
+          
+          <input type="text" class="form-control" id="name" aria-describedby="dataHelp" placeholder="Name: 50 characters max" name="name_of_prediction" maxlength="50" required><br>
+            <div class="form-group">
+              <select name="type_of_cancer" required>
+                <option value="">Cancer Type</option>
+                <option value="Breast">Breast</option>
+                <option value="Kidney">Kidney</option>
+                <option value="Lung">Lung</option>
+                <option value="Other">Other</option>
+              </select>
+              <br><br>
+              <label for="file">File:</label>
+              <input type="file" accept=".csv" class="form-control" id="file" aria-describedby="dataHelp" placeholder="Enter Data" name="csvfile" required><br>
+              <h5 class="text-primary">Please select the model you want to predict on, and its cancer type.</h5>
+              <br>
+              <select name="model_type" required>
+                <option value="">Model Type</option>
+                <option value="SVM">SVM</option>
+                <option value="Random Forest">Random Forest</option>
+              </select>
+              <select name="model_type_of_cancer" required>
+                <option value="">Cancer Type</option>
+                <option value="Breast">Breast</option>
+                <option value="Kidney">Kidney</option>
+                <option value="Lung">Lung</option>
+                <option value="Multiclass">Multiclass</option>
+              </select>
+            </div>
+            </br><br>
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </form>
+          </div> 
+    </div>
+    <br>
+    <br>
+    <br>
+{% endblock %}

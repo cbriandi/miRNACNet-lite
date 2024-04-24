@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<a href="/dashboard" class="nav-item nav-link" ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+<a href="/input" class="nav-item nav-link active"><i class="fa fa-keyboard me-2"></i>Input</a>
+<a href="/models" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Models</a>
+<a href="/miRNA" class="nav-item nav-link"><i class="fa fa-table me-2"></i>miRNA Data</a>
+<a href="/tutorial" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tutorial</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+    <div class="bg-light rounded p-4" style="background-color: white">
+        <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+            <h2 class="text-center" style="color: #009CFF">Results</h2><br>
+                </br>
+                    <h2 class="text-center" style="color: #009CFF">Data Received.</h2>
+                </br>
+                    <h3 class="text-center" style="color: #009CFF">You can view your results by clicking below.</h3>
+                </br>
+                <div style="text-align:center">
+                    <a class="btn btn-primary" href="/results">Show Results</a>
+                </div>
+                </br></br>
+                <h3 class="text-center" style="color: #009CFF">Inputted cancer type:</h3>
+                <h3 class="text-center" style="color: #009CFF">Model type:</h3>
+                <h3 class="text-center" style="color: #009CFF">Prediction:</h3>
+        </div>
+    </div>
+</div>    
+{% endblock %}

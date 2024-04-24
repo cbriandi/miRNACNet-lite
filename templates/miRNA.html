@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<a href="/dashboard" class="nav-item nav-link" ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+<a href="/input" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Input</a>
+<a href="/models" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Models</a>
+<a href="/miRNA" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>miRNA Data</a>
+<a href="/tutorial" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tutorial</a>
+{% endblock %}
+{% block content %}
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+<div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+  <h2 class="text-primary">MicroRNA Data</h2><br>
+  <h3 class="text-primary">What is MicroRNA?</h3>
+  <p class="lead">MicroRNAs are small,
+      highly conserved non-coding RNA molecules involved in the regulation of gene expression. MicroRNAs are transcribed by RNA polymerases II and III, 
+      generating precursors that undergo a series of cleavage events to form mature microRNA. MiRNAs achieve gene regulation by targeting specific messenger RNAs and marking them for
+      degradation or translational repression. Numerous high-profile diseases, such as diabetes, Alzheimer's
+      disease, cardiac hypertrophy, acquired immune deficiency, and numerous cancers are closely associated
+      with miRNA functionality.
+    </p>
+  <h3 class="text-primary">How is MicroRNA Used for Cancer Detection?</h3>
+  <p class="lead">miRNAs have well studied roles in controlling biological functions such as cellular proliferation,
+    differentiation, and apoptosis, which form the basis of cancer development. In relation to cancer, miRNA
+    expression profilings can serve as a more accurate method of classifying cancer subtypes than proteincoding gene expression profilings. Such classification is enabled by the heterogenous miRNA expression
+    patterns among cancer types, with miRNAs serving as highly tissue specific tumor suppressors and
+    oncogenes. In an effort to better understand such relationships, potential miRNA cancer biomarkers
+    have been studied based on expression profilings with significant incidence in cancerous tissue. These
+    biomarkers and distinct miRNA expressions have enabled to use of machine learning and data science
+    methodologies for cancer detection and cancer subtype distinction.</p>
+  <br>
+  <figure>
+    <img src=".\static\assets\miRNA.png" alt="miRNA" style="display: block; max-width:90%; margin: 0 auto;"><br>
+    <figcaption class="text-center">Formation and function of mRNAs, small non-coding RNAs with the potential to improve cancer
+      diagnostics.</figcaption>
+    <figcaption class="text-center"><a href="https://commons.wikimedia.org/wiki/File:MiRNA.svg">Kelvinsong</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a></figcaption>
+</figure>
+  </div>
+</div>
+<br><br><br>  
+    
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+<div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+          <h2 class="text-primary"> Connecting microRNA Data and Machine Learning</h2><br>    
+          <p class="lead">The difference in miRNA expression among cancer types and the extensive documentation of
+            biomarkers has enabled the development of biologically supported machine learning models. Machine
+            learning algorithms, such as the SVM and random forest models used in this project, exploit and learn
+            patterns present among training data samples to classify future unseen data. However, the patterns
+            learned can be any of the infinitely many present in a dataset. Often, classifiers that perform well focus
+            on seemingly irrelevant features, making it hard to justify usage and inspire confidence in non-machine
+            learning engineers that may use the end product. However, by comparing established miRNA
+            biomarkers with feature selection signatures, we can see the relevance of the models to biologically
+            studied pathways and miRNAs. The models in this application learn the patterns present in the miRNA
+            ID, the miRNA's corresponding read count, and reads per million attributes present in the miRNA
+            expression dataset. Three different tissues datasets were used to create binary cancer classifiers and a
+            single multiclass cancer-tissue differentiation model. As a brief overview into model functionality, a SVM
+            seeks to separate two or more classes using hyperplanes to create decision boundaries that maximize
+            the width of the gap between the classes. A Random Forest model uses the aggregate decision of
+            several decision trees to determine the classification of the datapoint.
+          </p>
+          <br>
+         
+        
+            <img src="\static\assets\RandomForest.png" alt="Random Forest" style="display: block; max-width:50%; margin: 0 auto;">
+            <br><br><br>
+            <img src="\static\assets\VectorMachines.png" alt="Vector Machines" style="display: block; max-width:50%; margin: 0 auto;">        
+            <br><br><br>
+</div>
+</div>
+    <br><br><br>  
+    <div class="container-fluid pt-4 px-4" style="background-color: white">
+      <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+        <h2 class="text-primary">Additional Information</h2><br>
+        <p class="lead">The data that we used for this project was obtained from the GDC data portal. The data attributes were
+          miRNA_ID, read_count, reads_per_million_miRNA_mapped, and cross-mapped. However, we removed
+          all features except the reads_per_million_miRNA_mapped and miRNA_ID so that the models could use
+          the concentration of miRNA for each miRNA to create the classification model. Below are the 3 cancers
+          we used, and a link to their respective pages on the GDC data portal.
+        </p>
+        </div>
+      </div>
+    <br><br><br>  
+          <div id="content">
+          <div class="tabContainer">
+            <ul class="tabs">
+              <li><a src="tab1" href="javascript:void(0);" class="active">Breast Cancer</a></li>
+              <li><a src="tab2" href="javascript:void(0);">Kidney Cancer</a></li>
+              <li><a src="tab3" href="javascript:void(0);">Lung Cancer</a></li>
+            </ul>
+            <div class="tabContent text-center">
+              <div id="tab1">
+                <img src="static/assets/breastmodel_new.png" alt="Lung Model" style="display: block; max-width:90%; margin: 0 auto;">
+            <br>
+            <p class="lead; text-center">9133 Cases</p>
+            <p class="lead; text-center">82913 Files</p><br>
+            <div class="text-center">
+              <a class="btn btn-outline-primary btn-lg" href="https://portal.gdc.cancer.gov/exploration?filters=%7B%22content%22%3A%5B%7B%22content%22%3A%7B%22field%22%3A%22cases.primary_site%22%2C%22value%22%3A%5B%22breast%22%5D%7D%2C%22op%22%3A%22in%22%7D%2C%7B%22content%22%3A%7B%22field%22%3A%22cases.diagnoses.tissue_or_organ_of_origin%22%2C%22value%22%3A%5B%22axillary%20tail%20of%20breast%22%2C%22breast%2C%20nos%22%2C%22central%20portion%20of%20breast%22%2C%22lower-inner%20quadrant%20of%20breast%22%2C%22lower-outer%20quadrant%20of%20breast%22%2C%22nipple%22%2C%22overlapping%20lesion%20of%20breast%22%2C%22upper-inner%20quadrant%20of%20breast%22%2C%22upper-outer%20quadrant%20of%20breast%22%5D%7D%2C%22op%22%3A%22in%22%7D%5D%2C%22op%22%3A%22and%22%7D">
+                View on gdc.cancer.gov</a>
+              </div>
+              <div style="width:425px; margin:0 auto;">  
+              </div>
+            </div>
+              <div id="tab2">
+                <img src="static/assets/kidneymodel_new.png" alt="Lung Model" style="display: block; max-width:90%; margin: 0 auto;">
+                <br>
+                <p class="lead; text-center">3463 Cases</p>
+                <p class="lead; text-center">69995 Files</p><br>
+                <div class="text-center">
+                  <a class="btn btn-outline-primary btn-lg" href="https://portal.gdc.cancer.gov/exploration?filters=%7B%22content%22%3A%5B%7B%22content%22%3A%7B%22field%22%3A%22cases.primary_site%22%2C%22value%22%3A%5B%22kidney%22%5D%7D%2C%22op%22%3A%22in%22%7D%2C%7B%22content%22%3A%7B%22field%22%3A%22cases.diagnoses.tissue_or_organ_of_origin%22%2C%22value%22%3A%5B%22kidney%2C%20nos%22%5D%7D%2C%22op%22%3A%22in%22%7D%5D%2C%22op%22%3A%22and%22%7D">
+                    View on gdc.cancer.gov</a>
+                  </div>
+                
+              </div>
+              <div id="tab3">
+                <img src="static/assets/lungmodel_new.png" alt="Lung Model" style="display: block; max-width:90%; margin: 0 auto;">
+            <br>
+            <p class="lead; text-center">12266 Cases</p>
+            <p class="lead; text-center">102016 Files</p><br>
+            <div class="text-center">
+              <a class="btn btn-outline-primary btn-lg" href="https://portal.gdc.cancer.gov/exploration?filters=%7B%22content%22%3A%5B%7B%22content%22%3A%7B%22field%22%3A%22cases.primary_site%22%2C%22value%22%3A%5B%22bronchus%20and%20lung%22%5D%7D%2C%22op%22%3A%22in%22%7D%2C%7B%22content%22%3A%7B%22field%22%3A%22cases.diagnoses.tissue_or_organ_of_origin%22%2C%22value%22%3A%5B%22lower%20lobe%2C%20lung%22%2C%22lung%2C%20nos%22%2C%22main%20bronchus%22%2C%22middle%20lobe%2C%20lung%22%2C%22overlapping%20lesion%20of%20lung%22%2C%22upper%20lobe%2C%20lung%22%5D%7D%2C%22op%22%3A%22in%22%7D%5D%2C%22op%22%3A%22and%22%7D">
+                View on gdc.cancer.gov</a>
+            </div>
+              </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

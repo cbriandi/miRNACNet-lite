@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<a href="/dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+<a href="/input" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Input</a>
+<a href="/models" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Models</a>
+<a href="/miRNA" class="nav-item nav-link"><i class="fa fa-table me-2"></i>miRNA Data</a>
+<a href="/tutorial" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tutorial</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+<br><br>
+<div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+    <h2 class="text-primary">Account's Results</h2><br>
+</div>
+</div>        
+{% endblock %}

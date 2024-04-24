@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<a href="/dashboard" class="nav-item nav-link" ><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+<a href="/input" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Input</a>
+<a href="/models" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Models</a>
+<a href="/miRNA" class="nav-item nav-link"><i class="fa fa-table me-2"></i>miRNA Data</a>
+<a href="/tutorial" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tutorial</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+        <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+        <h2 class="text-primary">About This Project</h2><br>
+            <p class="lead">The miRNACNet system is a cancer detection system based
+                on miRNA expression profiles. The project aims to use Support Vector Machines and Random Forest models along
+                with data visualizations and a user interface to implement the cancer detection system.
+                Additionally, this project will demonstrate the necessary steps involved in taking a healthcare AI
+                system from the research stage to one that is useful to physicians through a web-based
+                application.</p>
+        </div>
+        <br><br><br>   
+        <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+            <h2 style="color: #009CFF">Project Development</h2><br>
+            <img src="\static\assets\GraphicalAbstract.001.jpeg" alt="abstract" style="display: block; max-width:90%; margin: 0 auto;"><br><br>
+        <div class="row">
+            <div class="column">
+            <h2 class="text-primary" style="text-align: center;">Overall Goal</h2>
+            <p class="text-center" style="font-size: 15px; color: #009CFF">Develop a cancer prediction system based on miRNA expression profiles</p>
+           <br></div>
+            <div class="column">
+                <h2 class="text-primary" style="text-align: center;">Research Side</h2>
+                <p class="text-center" style="font-size: 15px; color: #009CFF">Develop a high-performance machine learning model capable of modeling the patterns expressed in miRNA expression datasets</p>
+            <br></div>           
+            <div class="column">
+                <h2 class="text-primary" style="text-align: center;">User Product Side</h2>
+                <p class="text-center" style="font-size: 15px; color: #009CFF">Create a web-based system that is capable of classifying miRNA expression profiles into cancerous and non-cancerous classes​</p>
+        </div>  
+        <h2 class="text-primary" style="text-align: center;">Project: Published Research Paper & Web Application</h2>
+    </div>
+    </div>
+    <br><br><br>
+    <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+        <h2 class="text-primary">Project Timeline</h2><br>
+        <img src="\static\assets\timeline1.png" alt="abstract" style="display: block; max-width:90%; margin: 0 auto;">
+    </div>
+    <br><br><br>
+    <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+        <h2 class="text-primary">System Diagram</h2><br>
+        <img src="\static\assets\SystemDiagram.png" alt="abstract" style="display: block; max-width:90%; margin: 0 auto;">
+    </div>
+</div>
+{% endblock %}

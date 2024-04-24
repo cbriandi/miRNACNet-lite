@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<a href="/dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+<a href="/input" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Input</a>
+<a href="/models" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Models</a>
+<a href="/miRNA" class="nav-item nav-link"><i class="fa fa-table me-2"></i>miRNA Data</a>
+<a href="/tutorial" class="nav-item nav-link active"><i class="fa fa-th me-2"></i>Tutorial</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+        <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+          <h2 class="text-primary">miRNACNet: How it Works</h2><br>
+              <p class="lead">To test your microRNA samples, simply head over to the 'Input Data' tab. 
+                  From there, you will be able to input a CSV file containing microRNA data. Please note that our application only works with CSV files, so please make sure your data is formatted correctly. Our model 
+                  is able to predict whether the microRNA samples provided are cancerous or non-cancerous,
+                  and will give a percentage that shows how confident the model is. Along with the results there will be different visualizations which will allow you to interpret the results more easily.
+              </p>
+    </div>
+    </div>
+          
+    <div class="container-fluid pt-4 px-4" style="background-color: white">
+      
+        <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+          <h2 class="text-primary">Getting Started</h2><br>
+              <p class="lead">After browsing our front page, you can create an account with an email, username and password. After doing so, you will have access to our predictive model so that you can start inputting your own miRNA data samples. 
+                Please note that in order to access the input page or dashboard, you must have a registered account.
+              </p>
+          
+        <div style="text-align: center;">
+        <img src="static/assets/inputnavigate.jpg" alt="Directions to navigate to input tab" style="display: block; max-width:90%; margin: 0 auto;">
+        </div>
+  </div>
+  </div>
+
+  
+  <div class="container-fluid pt-4 px-4" style="background-color: white">
+      
+    <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+          <h2 class="text-primary">Input</h2><br>
+      
+          <p class="lead">After navigating to the input page, locate your file containing miRNA data. Remember that it must be a csv file that is correctly formatted.
+            The first row should be the labels of each attribute (miRNA_ID, read_count, reads_per_million_miRNA_mapped, and cross-mapped).
+            The other 1881 rows should be miRNA samples. Below is an example ofhow your file should be formatted:
+          </p>
+          <img src="static/assets/img03.png" alt="Directions to navigate to input tab" style="display: block; max-width:90%; margin: 0 auto;">
+        </br></br></br>
+          <p class="lead"> Once you confirm that your data is correctly formatted, select what type of cancer your file contains.
+            Then, select the type of machine learning model you want to predict on (SVM or Random Forest) and the training cancer type for the selected model
+              (Breast, Kidney, Lung or Multiclass). 
+          </p>
+      </div>
+</div>
+
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+  <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+    <h2 class="text-primary">Results</h2><br>
+        <p class="lead">Once you submit the input form, to the results section, where your prediction will be displayed,
+          and a link to the details of the selected model will be shown.
+        </p>
+        <img src="static/assets/img04.png" alt="Results" style="display: block; max-width:90%; margin: 0 auto;">
+    </div>
+</div>
+
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+  <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+    <h2 class="text-primary">Dashboard</h2><br>
+        <p class="lead">As you continue to run predictions, your results will be saved for you to access at any time. Simply head to the Dashboard 
+          tab to access your account's dashboard.
+        </p>
+        <img src="static/assets/img05.png" alt="Dashboard" style="display: block; max-width:90%; margin: 0 auto;">
+      </br></br></br>
+      <p class="lead">From there, you will be able to access all of your previous results, making access to past predictions quite convenient.
+      </p>
+    </div>
+</div>
+
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+  <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+    <h2 class="text-primary">Other Information</h2><br>
+        <p class="lead">To learn more about each our models, head to the Models tab. From there you will also be able to access the page for each specific 
+          dataset.
+        </p>
+        <p class="lead">If you wish to learn more about our project, head to the home page by clicking our logo at the top left. We hope you enjoy
+          the information our website has to offer!
+        </p>
+    </div>
+</div>
+{% endblock %}

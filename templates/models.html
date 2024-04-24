@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+                    <a href="/dashboard" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/input" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Input</a>
+                    <a href="/models" class="nav-item nav-link active"><i class="fa fa-chart-bar me-2"></i>Models</a>
+                    <a href="/miRNA" class="nav-item nav-link"><i class="fa fa-table me-2"></i>miRNA Data</a>
+                    <a href="/tutorial" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tutorial</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4" style="background-color: white">
+    <div class="bg-light rounded p-4" style="border: 2px solid #009CFF">
+                <h2 class="text-primary">Models</h2><br>
+                <p class="lead">We have selected a total of 8 models (2 for each dataset) for prediction.
+                SVM and Random Forest were found to be the best performing models so each are used with the Kidney, Lung, Breast, and Multiclass datasets.
+                Here is some information on the metrics that are used to measure the models' performance, along with a link to each 
+                respective dataset's page.
+                </p><br>
+                
+    </div>
+</div>
+        <br><br><br>
+<div id="content">
+    <div class="tabContainer">
+            <ul class="tabs">
+                <li><a src="tab1" href="javascript:void(0);" class="active">Principal Component Analysis</a></li>
+                <li><a src="tab2" href="javascript:void(0);">Mutual Information Feature Selection</a></li>
+                <li><a src="tab3" href="javascript:void(0);">Normal vs. Cancerous Cases</a></li>
+            </ul>
+            <div class="tabContent text-primary">
+                <div id="tab1">
+                <h3 class="text-primary" style="color: #009CFF">Principal Component Analysis (PCA)</h3>
+                <p class="lead">PCA is used to reduce the amount of dimensions when displaying data. 
+                    In our case, the data contains 4 attributes, which cannot be displayed visually on a 3 dimensional plane. 
+                    Instead, PCA is used to summarize the attributes of our data and visualize them on a 2D and 3D plane.
+                    Below is an example of a 3D PCA for our multiclass dataset.
+                </p><br>
+
+                <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://chart-studio.plotly.com/~eyan1443/17" height="450" width="100%"></iframe>
+                
+                </br>  
+                <div style="width:425px; margin:0 auto;">
+                    
+     </div>
+</div>
+                <div id="tab2">
+                <h3 class="text-primary" style="color: #009CFF">Mutual Information Feature Selection</h3>
+                <p class="lead">
+                    Mutual information feature selection was used for each type of dataset to explore the most relevant miRNAs for each tissue type. 
+                    This gives us insight into which specific miRNAs are most impactful when it comes to classification. 
+                    We decided to list the 10 most significant miRNAs for each tissue type. Below is an example of feature selection
+                        for multiclass.
+
+                </p>
+                <div class="bg-light rounded p-4">
+                    <h6 class="text-primary text-center">10 Most Important miRNA Features</h6>
+                    <h6 class="text-primary text-center">hsa-mir-10b</h6>
+                    <h6 class="text-primary text-center">hsa-mir-141</h6>
+                    <h6 class="text-primary text-center">hsa-mir-182</h6>
+                    <h6 class="text-primary text-center">hsa-mir-183</h6>
+                    <h6 class="text-primary text-center">hsa-mir-190b</h6>
+                    <h6 class="text-primary text-center">hsa-mir-196a-2</h6>
+                    <h6 class="text-primary text-center">hsa-mir-200c</h6>
+                    <h6 class="text-primary text-center">hsa-mir-204</h6>
+                    <h6 class="text-primary text-center">hsa-mir-205</h6>
+                    <h6 class="text-primary text-center">hsa-mir-375</h6>
+                </div>
+                </div>
+                <div id="tab3">
+                <h3 class="text-primary" style="color: #009CFF">Normal vs. Cancerous Cases</h3>
+                <p class="lead">
+                   In order to train our models, we supplied pre-labeled datasets for each tissue type. The pie chart gives
+                   a visual representation of how each model's dataset is split, showing the composition of normal samples and tumorous samples. Below
+                   is the pie chart showing the composition of the dataset used for multiclass, which is a combination of all 3 tissue types.
+                </p><br>
+                <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://chart-studio.plotly.com/~cbriandi/3?share_key=H7lJ9KXNaT16ihuly03ah8" height="450" width="100%"></iframe>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Breast &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a href="/breast" class="btn btn-outline-primary btn-sm">View</a></h6>
+                    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://chart-studio.plotly.com/~eyan1443/12" height="450" width="100%"></iframe>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Kidney &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a href="/kidney" class="btn btn-outline-primary btn-sm">View</a></h6>
+                    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://chart-studio.plotly.com/~eyan1443/2" height="450" width="100%"></iframe>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Lung &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a href="/lung" class="btn btn-outline-primary btn-sm">View</a></h6>
+                    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://chart-studio.plotly.com/~eyan1443/8" height="450" width="100%"></iframe>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Multiclass &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a href="/multiclass" class="btn btn-outline-primary btn-sm">View</a></h6>
+                    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~eyan1443/15" height="450" width="100%"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
