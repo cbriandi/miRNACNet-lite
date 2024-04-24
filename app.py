@@ -105,4 +105,4 @@ def servererror(e):
     return render_template("500.html"), 500
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=False, host='0.0.0.0')
